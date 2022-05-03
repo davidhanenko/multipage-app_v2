@@ -1,0 +1,16 @@
+@import '../prices.css';
+
+.prices {
+  justify-content: center;
+}
+
+.price {
+  background-color: var(--bgColorSecondary);
+  border: 1px solid white;
+  padding: 2rem;
+  margin: 2rem 1rem;
+}
+
+.price-title {
+  text-transform: capitalize;
+}

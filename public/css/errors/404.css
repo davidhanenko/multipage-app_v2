@@ -1,0 +1,151 @@
+@import '../bottom-menu.css';
+@import '../contacts.css';
+
+:root {
+  --white: #f6fafe;
+  --purple2: #5e3b5e;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#error {
+  background-image: url('../../imgs/main-img.jpg');
+  min-height: 15rem;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  color: var(--white);
+}
+
+.image-overlay {
+  display: block;
+  position: relative;
+}
+
+.image-overlay:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(37, 22, 37, 0.507);
+}
+
+#error h1 {
+  z-index: 1;
+  position: relative;
+  display: block;
+  display: flex;
+  justify-content: center;
+  font-size: 8rem;
+  margin-bottom: 0;
+  padding-top: 4rem;
+}
+
+#error h2 {
+  z-index: 1;
+  position: relative;
+  display: block;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+#error h5 {
+  z-index: 1;
+  position: relative;
+  display: block;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  padding-bottom: 2rem;
+}
+
+#error ol {
+  display: block;
+  z-index: 1;
+  position: relative;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-left: 8rem;
+  list-style-type: disc;
+}
+
+#error li {
+  font-size: 1rem;
+}
+
+/* Contacts */
+#contacts {
+  margin-top: 0;
+  padding: 1rem;
+}
+
+.contact h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.contact h3 {
+  color: var(--purple2);
+  font-size: 1rem;
+  letter-spacing: 0.09rem;
+}
+
+.contact p {
+  color: #100035;
+  font-size: 0.8rem;
+}
+
+.contact svg {
+  margin: 0.7rem;
+}
+
+/* bottom menu */
+#bottom-menu {
+  position: relative;
+  height: 80%;
+  background: var(--purple2);
+  max-width: 100%;
+  bottom: 0;
+}
+
+#bottom-menu a {
+  color: var(--white);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+#bottom-menu a:hover {
+  color: #222;
+  transition: 300ms;
+}
+
+.copyright {
+  display: none;
+}
+
+/* @media */
+@media (max-width: 501px) {
+  #error h2 {
+    font-size: 3.5rem;
+  }
+
+  #error h5 {
+    font-size: 1.3rem;
+  }
+
+  #error ol {
+    padding-left: 3rem;
+  }
+
+  #error li {
+    font-size: 1rem;
+  }
+}

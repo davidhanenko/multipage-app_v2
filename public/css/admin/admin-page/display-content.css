@@ -1,0 +1,25 @@
+#display-content {
+  background: var(--bgColorSecondary);
+  padding: 2rem 1rem 3rem 3rem;
+}
+
+.content-title-button {
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.content-title-modal {
+  text-transform: capitalize;
+}
+
+
+.content-display-checkbox {
+  width: 2rem;
+  height: 2rem;
+}
+
+.content-display-mode {
+  text-transform: uppercase;
+  color: var(--purple1);
+}
+

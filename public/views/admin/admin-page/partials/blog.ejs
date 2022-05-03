@@ -1,0 +1,66 @@
+<section id="blog" class="blog container-fluid my-5">
+  <div class="row ">
+    <div class="col-12">
+      <h2 class="admin-section my-4">EDIT or DELETE blog posts</h2>
+    </div>
+    <%% posts.forEach(post=> { %>
+
+      <div class="col-md-6 col-lg-4 px-0">
+
+        <div class="post">
+          <div class="row post-header">
+            <div class="col-8">
+              <h4 class="pb-2">
+                <%%= post.postTitle %>
+              </h4>
+              <h6 class="pb-2">
+                <%%= postCreatedAtFormat(post.createdAt) %>
+              </h6>
+            </div>
+            <div class="col-4">
+              <img class="post-img" src="<%%= post.postImage.url %>" alt="<%%= post.postTitle %>">
+            </div>
+          </div>
+
+          <a class="btn btn-info" href="/admin/blog/<%%= post.id %>">View</a>
+
+          <button type="button" class="btn btn-danger" data-toggle="modal"
+            data-target="#confirmDeleteModal<%%= post._id %>">Delete</button>
+
+        </div>
+        <!-- modal window to confirm delete choosen post -->
+        <div class="modal fade" id="confirmDeleteModal<%%= post._id %>" data-backdrop="static" data-keyboard="false"
+          tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                  Delete post: <%%= post.postTitle %>?
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">Please confirm deleting the post</div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Close
+                </button>
+                <form class="d-inline" action="/admin/blog/<%%= post._id %>?_method=DELETE" method="POST">
+                  <input type="hidden" name="_csrf" value="<%%= csrfToken%>">
+                  <button class="btn btn-danger">Confirm</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%% }) %>
+  </div>
+  <a class="btn btn-block btn-secondary mt-5 mb-5" href="/admin/blog/post-new">Add new post</a>
+
+  <hr />
+
+</section>

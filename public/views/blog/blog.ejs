@@ -1,0 +1,54 @@
+<%% if(posts) { %>
+
+  <section id="blog" class="container-fluid">
+
+    <h1 class="section-title">News</h1>
+
+    <div class="posts-container">
+
+      <!-- single post -->
+      <%% posts.forEach(post=> { %>
+
+        <a href="/post/<%%= post._id %> ">
+          <div class="post">
+            <div class="row w-100 px-md-4 pb-2">
+              <div class="col-md-6  px-0 order-2 order-md-1">
+                <h4 class="post-title">
+                  <%%= post.postTitle %>
+                </h4>
+              </div>
+              <div class="col-md-6 px-0 d-flex justify-content-end order-1 order-md-2">
+                <h4 class="post-date">
+                  <%%= postCreatedAtFormat(post.createdAt) %>
+                </h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-8 order-2 order-md-1">
+                <p class="post-body">
+                  <%%= post.mainPostParagraph %>
+                </p>
+              </div>
+              <div
+                class="col-6 offset-3 col-md-4 offset-md-0 order-1 order-md-2 my-3 mt-md-0 d-flex justify-content-center">
+                <%% if(post.postImage.url) { %>
+                  <img class="post-img" src="<%%=post.postImage.url %>" alt="<%%=post.postTitle %>">
+                  <%% } %>
+              </div>
+            </div>
+            <div class="row pt-3">
+              <div class="col">
+                <p class="read-more">Read more...</p>
+              </div>
+            </div>
+          </div>
+
+        </a>
+
+
+        <%% }) %>
+
+    </div>
+  </section>
+
+  <%% } %>

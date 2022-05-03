@@ -1,0 +1,25 @@
+@import '../admin/header.css';
+@import '../admin/go-back-admin-btn.css';
+
+body {
+  background: var(--bgColorMain);
+}
+
+.login {
+  margin-top: 10rem;
+}
+
+.login h1 {
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+
+/* disable SVG for bootstrap form validation */
+.form-control.is-valid, .was-validated .form-control:valid  {
+  background-image: none;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid  {
+  background-image: none;
+}

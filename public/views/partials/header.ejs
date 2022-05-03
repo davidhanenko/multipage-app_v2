@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%%= description %>">
+  <!-- <meta name=”robots” content="index, follow"> -->
+  <meta property="csp-nonce" content="<%%= cspNonce %>">
+  <meta property="og:image"
+    content="https://res.cloudinary.com/dxxcixosf/image/upload/c_scale,w_416/v1623815881/Ilona/main-img_fagceb.png" />
+
+
+  <title>
+    <%%= title %>
+  </title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer nonce="<%%= cspNonce %>"></script>
+
+</head>
+
+<body>
+
+  <header id="header">
+
+
+    <div class="container-fluid">
+
+
+      <!-- ******** Logo **********-->
+
+      <div id="logo" class="row justify-content-start">
+        <div class="col p-0">
+          <a href="/">
+            <div class="logo"><span>Home</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ******** NavBar **********-->
+
+      <nav id="mainNavbar" class="navbar navbar-expand-md fixed-top navbar-light justify-content-end mt-lg-0">
+        <button class="navbar-toggler navbar-light  collapsed" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span id="hamburger" class="toggler-icon icon"></span>
+          <span class="close-icon icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+          <ul id="listId" class="navbar-nav mt-md-0 list">
+            <li class="nav-item <%%= typeof page !== undefined && page === 'home' ? 'active' : '' %>">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <%% if(displayAbout.display) { %>
+              <li class="nav-item <%%= typeof page !== undefined && page === 'about' ? 'active' : '' %>">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <%% } %>
+                <li class="nav-item dropdown" id="navbarDropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Services
+                  </a>
+                  <div id="services-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <%% services.forEach(services=> { %>
+                      <a class="dropdown-item <%%= typeof page !== undefined && page === services.title ? 'dropdown-item-active' : ''
+                      %>" href="/services/<%%= services.template %>">
+                        <%%= services.title %>
+                      </a>
+                      <%% }) %>
+
+                  </div>
+                </li>
+                <%% if(displayGallery.display) { %>
+                  <li class="nav-item <%%= typeof page !== undefined && page === 'gallery' ? 'active' : '' %>">
+                    <a class="nav-link" href="/gallery">Gallery</a>
+                  </li>
+                  <%% } %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/#email-map">Contact Us</a>
+                    </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>

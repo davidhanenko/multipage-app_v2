@@ -1,0 +1,84 @@
+<%- include ../partials/header -%>
+
+  <div id="post-page" class="container">
+    <div class="row">
+      <!-- side menu - list of all posts -->
+      <section id="post-menu" class="col-12 col-md-4 pr-md-4">
+
+      <button class="btn btn-block dropdown-toggle posts-button-toggle d-block d-md-none mb-5" type="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        other posts
+      </button>
+
+        <ul class="p-0 menu-dropdown d-md-block">
+          <%% posts.forEach(p=> { %>
+
+            <a href="/post/<%%= p._id %>" class="<%%= p.id===post.id ? 'post-active' : '' %>">
+              <li class="row menu-item mx-1 my-3 py-3 px-1">
+                <div class="col-8">
+                  <h5>
+                    <%%= p.postTitle %>
+                  </h5>
+                </div>
+                <div class="col-4 px-0">
+                  <img class="" src="<%%= p.postImage.url %>" alt="<%%= p.postTitle %>">
+                </div>
+              </li>
+            </a>
+
+            <%% }) %>
+        </ul>
+
+
+      </section>
+
+      <!-- current post -->
+      <section id="post-body" class="col-md-8 pl-4 py-3">
+
+          <!-- Spinner for post loading -->
+          <div id="post-loading-spinner">
+            <div class="lds-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+        <!-- post title -->
+        <h2 class="post-title">
+          <%%= post.postTitle %>
+        </h2>
+        <!-- post image -->
+        <img class="post-image py-5" src=" <%%= post.postImage.url %>" alt="<%%= post.postTitle %>">
+
+        <!-- main paragraph/from main page -->
+        <p class="post-paragraph">
+          <%%= post.mainPostParagraph %>
+        </p>
+        <%% post.postParagraph.forEach(p=> { %>
+
+          <p class="post-paragraph">
+            <%%= p.paragraph %>
+          </p>
+
+          <%% }) %>
+      </section>
+    </div>
+  </div>
+
+  <%- include ../partials/go-to-top-button -%>
+
+    <%- include ../contacts -%>
+
+      <%- include ../partials/bottom-menu -%>
+
+        <%- include ../partials/footer -%>

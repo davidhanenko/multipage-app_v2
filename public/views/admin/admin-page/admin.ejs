@@ -1,0 +1,177 @@
+<%- include ../partials/header -%>
+
+
+
+  <div class="container-fluid p-0 mb-5">
+
+    <!-- readonly role/mode -->
+    <%- include ./partials/read-only-role -%>
+
+      <!-- Admin page header -->
+      <div class="container">
+        <h1 class="admin-header">Welcome back. What will we change today?</h1>
+      </div>
+
+      <hr>
+
+
+      <!-- Blog  -->
+      <%- include ./partials/blog -%>
+
+
+
+        <!-- Popup/Emergency message -->
+        <%- include ./partials/popups -%>
+
+
+        <hr>
+
+  </div>
+
+  <!-- About page -->
+  <%- include ./partials/about -%>
+
+    <!--Gallery  -->
+    <%- include ./partials/gallery -%>
+
+      <!-- Services -->
+      <%- include ./partials/services -%>
+
+
+        <!-- Prices -->
+        <%- include ./partials/prices -%>
+
+          <!-- Contacts -->
+          <%- include ./partials/contacts -%>
+
+
+            <!-- Title, meta tags for main page-->
+            <section class="container my-5" id="tags">
+
+              <hr>
+
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="admin-section my-4">Main page Title and Description tags</h2>
+                </div>
+              </div>
+
+              <%% if( !mainTags ) { %>
+
+                <!-- create tags form -->
+                <form action="/admin/main" method="POST" class="mx-auto">
+                  <input type="hidden" name="_csrf" value="<%%= csrfToken%>">
+                  <div class="row justify-content-center">
+
+                    <div class="col-md-8">
+                      <input type="text" class="form-control my-2" name="title" placeholder="Title">
+                    </div>
+
+                    <div class="col-md-8">
+                      <input type="text" class="form-control my-2" name="description" placeholder="Description">
+                    </div>
+
+                  </div>
+
+
+                  <div class="row justify-content-center">
+                    <div class="col-md-8">
+                      <button type="submit" id="create-tags"
+                        class="btn btn-lg btn-block btn-primary my-2">Create</button>
+                    </div>
+                  </div>
+
+                  <!-- create loading spinner -->
+                  <div class="text-center" id="create-tags-spinner">
+                    <div class="lds-spinner create-spinner">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+
+                </form>
+
+                <!-- popover -->
+                <a tabindex="0" class="btn btn-round-advice m-2" role="button" data-toggle="popover"
+                  data-trigger="focus" title="Info"
+                  data-content="Create title and description Google use to find your page">?</a>
+
+
+                <%% } else { %>
+
+                  <!-- edit tags form -->
+                  <form action="/admin/main?_method=PUT" method="POST" class="mx-auto">
+                    <input type="hidden" name="_csrf" value="<%%= csrfToken%>">
+                    <div class="row justify-content-center">
+
+                      <div class="col-md-8">
+                        <label for="tag-title">Title</label>
+                        <input type="text" id="tag-title" class="form-control" name="title"
+                          value="<%%= mainTags.title %>">
+
+                      </div>
+
+                      <div class="col-md-8 my-4">
+                        <label for="tag-description">Description</label>
+                        <textarea type="text" id="tag-description" class="form-control" rows="5"
+                          name="description"><%%= mainTags.description %></textarea>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="row justify-content-center">
+                      <div class="col-md-8">
+                        <button type="submit" id="update-tags"
+                          class="btn btn-lg btn-block btn-primary my-2">Update</button>
+                      </div>
+                    </div>
+
+                    <!-- update loading spinner -->
+                    <div class="text-center" id="update-tags-spinner">
+                      <div class="lds-spinner update-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+
+                  </form>
+                  <!-- popover -->
+                  <a tabindex="0" class="btn btn-round-advice m-2" role="button" data-toggle="popover"
+                    data-trigger="focus" title="Info"
+                    data-content="Update title and description Google use to find your page">?</a>
+                  <%% } %>
+
+                    <hr>
+
+            </section>
+
+            <%- include ./partials/counter -%>
+
+
+              <!-- display content on main page/website -->
+              <%- include ./partials/display-content -%>
+
+
+                <%- include ../../partials/footer -%>

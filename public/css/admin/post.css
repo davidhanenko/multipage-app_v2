@@ -1,0 +1,129 @@
+@import '../loaders.css';
+
+#post {
+  margin-top: calc(var(--navbarHeight) + 8rem);
+}
+
+.post-section-title {
+  color: var(--white);
+  margin: 4rem 0;
+  font-size: 2.5rem;
+}
+
+#post .post-title::first-letter,
+#post p::first-letter {
+  text-transform: capitalize;
+}
+
+#post p {
+  font-size: 1.2rem;
+  text-indent: 2rem;
+}
+
+/* post image */
+.image-exist {
+  position: relative;
+  width: 100%;
+  height: auto;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.image-exist img {
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-choose {
+  font-weight: 300;
+  padding: 0.7rem;
+  max-width: 70%;
+  height: 7rem;
+  background: rgba(177, 131, 159, 0.516);
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  text-align: start;
+  color: var(--white);
+}
+
+.image-preview {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  max-height: 100%;
+}
+
+.delete-post-image {
+  background: var(--purple2_lighter);
+  padding: 0.3rem 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--white);
+}
+
+.delete-post-image label {
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+input[type=checkbox] {
+  transform: scale(1.3);
+}
+
+/* post title */
+.title-edit-area {
+  display: none;
+  width: 100%;
+}
+
+.edit-area {
+  display: none;
+}
+
+#update-btn {
+  margin-top: 6rem;
+}
+
+/* post paragraph */
+#post-new-paragraph {
+  border: 1px solid var(--white);
+  padding: 3rem 2rem;
+}
+
+@media (max-width: 767px) {
+  #post-new-paragraph {
+    padding: 1rem 0;
+  }
+  #post-new-paragraph h4 {
+    font-size: 1.4rem;
+  }
+}
+
+/* paragraph delete confirmation modal */
+.modal-p {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* loader */
+.update-spinner {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 12rem;
+}

@@ -1,0 +1,151 @@
+#prices {
+  margin-top: 5rem;
+  margin-bottom: 6rem;
+  background: #8c577a;
+  background: -webkit-linear-gradient(top left, #8c577a, #d095ce);
+  background: -moz-linear-gradient(top left, #8c577a, #d095ce);
+  background: linear-gradient(to bottom right, #8c577a, #d095ce);
+  color: var(--white);
+  min-height: 30rem;
+}
+
+.priceBtn {
+  color: var(--white);
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.priceBtn:focus-visible {
+  color: var(--lightGray);
+}
+
+.our-services {
+  font-weight: 7;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: var(--white);
+  background: none;
+}
+
+.btn-secondary {
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+#pricesButtons {
+  border-bottom: 2px solid var(--white);
+  margin-bottom: 1rem;
+  padding-bottom: 1.7rem;
+}
+
+.btn-secondary:focus {
+  background: none;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: var(--purple2_lighter);
+  box-shadow: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  background: var(--purple2_lighter);
+  box-shadow: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active:focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  box-shadow: none;
+}
+
+.priceBtn:hover {
+  color: var(--darkText);
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active:focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  box-shadow: none;
+}
+
+.pricesTable {
+  display: none;
+}
+
+.table thead th {
+  border: none;
+}
+
+.table td {
+  padding: 3px;
+  border: none;
+  min-width: 5rem;
+}
+.table th {
+  padding: 3px;
+  border: none;
+  min-width: 5rem;
+  cursor: default;
+  text-transform: capitalize;
+}
+.table tbody tr {
+  transition: all 250ms;
+}
+
+.table tbody tr:hover {
+  color: var(--white);
+  transform: scale(1.02);
+  cursor: default;
+}
+
+.prices-active {
+  display: block;
+}
+
+#drop-prices {
+  border-bottom: 2px solid var(--white);
+  margin-bottom: 1rem;
+}
+
+.prices-menu.dropdown-menu {
+  background: var(--white);
+  border: none;
+  width: 20em;
+  margin-top: 0.1rem;
+}
+
+.prices-menu .dropdown-item {
+  border-bottom: 1px solid transparent;
+  color: var(--purple3);
+  font-size: 1.2rem;
+  width: 80%;
+  margin: 0 auto;
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.prices-menu .dropdown-item:hover {
+  background: none;
+  border-bottom: 1px solid var(--purple3);
+  color: var(--purple3);
+  opacity: 0.65;
+}
+
+.priceBtnActive {
+  /* border-bottom: 1px solid var(--purple3); */
+  color: var(--purple3);
+  opacity: 0.65 !important;
+  transform: scale(1.05);
+  cursor: not-allowed;
+  pointer-events: none;
+}

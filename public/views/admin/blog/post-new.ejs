@@ -1,0 +1,64 @@
+<%- include ../partials/header -%>
+
+  <div class="container post-new">
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="title text-center mb-4 add-new-post-title">Add a new blog post</h2>
+      </div>
+    </div>
+
+
+    <form action="/admin/blog?_csrf=<%%= csrfToken %>" method="POST" enctype="multipart/form-data" class="mx-auto">
+
+      <!-- post title -->
+      <input type="text" class="form-control my-4" name="postTitle" placeholder="Post title"
+        value="<%%= data.postTitle %>">
+
+      <!-- main paragraph -->
+      <textarea type="text" rows="5" class="form-control my-4" name="mainPostParagraph"
+        placeholder="Main paragraph of a post - to be shown on main page"
+        value="<%%= data.mainPostParagraph %>"><%%= data.mainPostParagraph %></textarea>
+
+      <!-- post image -->
+      <div class="row postImage-choose mx-0">
+        <div class="col-md-8">
+          <label class="label" for="postImage">Upload post image</label>
+          <input type="file" class="form-control-file my-2" name="postImage" id="postImage" accept="image/*" />
+        </div>
+
+        <!-- preview -->
+        <div class="col-md-4">
+          <img class="image-preview d-inline" alt="" />
+        </div>
+      </div>
+
+
+      <button type="submit" id="create-post-btn" class="btn btn-lg btn-block btn-primary my-2">Submit</button>
+    </form>
+
+    <!-- loading spinner -->
+    <div id="loading-new-post-spinner">
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <%- include ../partials/go-back-admin-btn -%>
+
+
+
+    <%- include ../partials/footer -%>

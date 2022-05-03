@@ -1,0 +1,67 @@
+@import '../admin/header.css';
+@import '../admin/go-back-admin-btn.css';
+
+body {
+  background: var(--bgColorMain);
+}
+
+h2 {
+  margin-top: 10rem;
+}
+
+h2 span {
+  color: var(--white);
+}
+
+.add-new-price {
+  margin-top: 10rem;
+}
+
+.price-show {
+  width: 100%;
+  margin-top: 4rem;
+  overflow: hidden;
+  overflow: scroll;
+}
+
+.title {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.form-inline .form-control {
+  max-width: 100%;
+}
+
+input.form-control.edit-unit-price-input {
+  max-width: 30%;
+}
+
+input.form-control.edit-price-header {
+  max-width: 30%;
+}
+
+.price-edit-button {
+  width: 8rem;
+}
+
+.price-edit {
+  display: none;
+}
+
+.price-unit-edit {
+  display: none;
+}
+
+.price-unit-edit-button {
+  width: 4rem;
+}
+
+/* @media */
+
+@media (max-width: 501px) {
+ .form-inline .form-control {
+font-size: .8rem;
+}
+}

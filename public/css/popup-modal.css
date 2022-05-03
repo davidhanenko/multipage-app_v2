@@ -1,0 +1,95 @@
+:root {
+  --textDark: #070707;
+  --textWhite: #f6fafe;
+  --textRed: #b92b2b;
+  --textBlue: #0c55c4;
+  --textGreen: #22be37;
+  --textPurple: #422942;
+
+  --bgWhite: #f6fafe;
+  --bgDWhite: #e5e6e9;
+  --bgLPink: #f1cfe2;
+  --bgLPurple: #b47eb28f;
+  --bgDPurple: #a772a5;
+}
+
+/* font sizes */
+.fs-1 {
+  font-size: 1.25rem;
+}
+.fs-2 {
+  font-size: 1.5rem;
+}
+.fs-3 {
+  font-size: 1.75rem;
+}
+.fs-4 {
+  font-size: 2rem;
+}
+.fs-5 {
+  font-size: 2.25rem;
+}
+
+/* text colors */
+.text-dark {
+  color: var(--textDark);
+}
+.text-white {
+  color: var(--textWhite);
+}
+.text-red {
+  color: var(--textRed);
+}
+.text-blue {
+  color: var(--textBlue);
+}
+.text-green {
+  color: var(--textGreen);
+}
+.text-purple {
+  color: var(--textPurple);
+}
+/* background colors */
+.bg-white {
+  background: var(--bgWhite);
+}
+.bg-darker-white {
+  background: var(--bgDWhite);
+}
+.bg-light-pink {
+  background: var(--bgLPink);
+}
+.bg-light-purple {
+  background: var(--bgLPurple);
+}
+.bg-darker-purple {
+  background: var(--bgDPurple);
+}
+
+/* title positions */
+.title-left {
+  text-align: left;
+}
+.title-center {
+  text-align: center;
+}
+.title-right {
+  text-align: right;
+}
+
+/* modal */
+.modal-content {
+  padding: 1rem;
+}
+
+.modal-body {
+  font-weight: 100;
+}
+
+.modal-header {
+  border-bottom: 0 none;
+}
+
+.modal-footer {
+  border-top: 0 none;
+}

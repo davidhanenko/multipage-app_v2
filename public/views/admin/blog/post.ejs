@@ -1,0 +1,219 @@
+<%- include ../partials/header -%>
+  <div id="post" class="container px-4">
+
+    <h2 class="post-section-title">Post header</h2>
+    <!-- form to update main part of the post -->
+    <form class="mb-5 header-edit-form" action="/admin/blog/<%%= post._id %>?_method=PUT&_csrf=<%%= csrfToken %>"
+      method="POST" enctype="multipart/form-data">
+
+
+      <div class="row px-1">
+
+        <div class="col-md-7">
+
+          <!-- post title -->
+          <div class="row text-center">
+            <div class="col-10">
+              <h3 class="post-title py-2">
+                <%%= post.postTitle %>
+              </h3>
+              <!-- edit area for title -->
+              <div class="row justify-content-center text-center">
+                <div class="title-edit-area">
+                  <input type="text" class="form-control" name="postTitle" value="<%%= post.postTitle %>" />
+                </div>
+              </div>
+            </div>
+            <!-- button to open title edit area  -->
+            <div class="col-2">
+              <button type="button" class="btn btn-sm btn-warning title-edit-button">
+                Edit
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col edit">
+
+              <p class="py-2">
+                <%%= post.mainPostParagraph %>
+              </p>
+              <!-- button to open-close post main paragraph edit area  -->
+              <button type="button" class="btn btn-sm btn-block btn-warning edit-button">
+                Edit
+              </button>
+
+              <!-- edit area for post main paragraph  -->
+              <div class="edit-area">
+                <textarea type="text" class="form-control my-2" name="mainPostParagraph"
+                  rows="5"><%%= post.mainPostParagraph %></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- post image -->
+        <div class="col-12 col-md-5 mt-5 mt-lg-0">
+          <div class="image-exist">
+
+
+            <!-- delete checkbox input-->
+            <%% if(post.postImage.url) { %>
+                <div class="form-check-inline delete-post-image">
+                  <input name="deleteImage" type="checkbox" id="deleteImage">
+                  <label for="deleteImage">Delete?</label>
+                </div>
+                <%% } %>
+
+                  <!-- post image -->
+                  <img src="<%%= post.postImage.url %>" alt="">
+
+                  <div class="image-choose">
+                    <label for="postImage">Upload new image</label>
+                    <input type="file" class="form-control-file my-2" name="postImage" id="postImage"
+                      accept="image/*" />
+
+                    <!-- image preview -->
+                    <img class="image-preview" alt="" />
+
+                  </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button type="submit" id="update-btn" class="update-btn btn btn-lg btn-block btn-primary">
+        Update Header of the Post
+      </button>
+
+      <!-- update loading spinner -->
+      <div id="update-spinner">
+        <div class="lds-spinner update-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+    </form>
+
+    <hr>
+
+    <h2 class="post-section-title">Post paragraphs</h2>
+    <div class="row">
+      <%% post.postParagraph.forEach(p=> { %>
+        <div class="col-12 edit my-3">
+          <p>
+            <%%= p.paragraph %>
+          </p>
+
+          <!-- buttons to open-close post' paragraph edit area and delete current paragraph -->
+          <div class="row">
+            <div class="col-6 d-flex justify-content-end">
+              <button type="button" class="btn btn-sm btn-block btn-warning edit-button w-50">
+                Edit
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-sm btn-block btn-danger w-50" data-toggle="modal"
+                data-target="#confirmDeleteModal<%%= p._id %>">
+                Delete
+              </button>
+
+              <!-- modal window to confirm delete post' paragraph -->
+              <div class="modal fade" id="confirmDeleteModal<%%= p._id %>" data-backdrop="static" data-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">
+                        Delete post paragraph:&emsp; <span class="modal-p">
+                          <%%= p.paragraph.slice(0, 60) %></em>...&emsp;?
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Please confirm deleting choosen paragraph
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                      </button>
+                      <form class="d-inline"
+                        action="/admin/blog/<%%= post._id %>/paragraphs/<%%= p._id %>?_method=DELETE" method="POST">
+                        <input type="hidden" name="_csrf" value="<%%= csrfToken%>">
+                        <button class="btn btn-danger">Confirm</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- edit area for post' paragraph  -->
+          <div class="edit-area px-lg-5">
+
+            <form action="/admin/blog/<%%= post._id %>/paragraphs/<%%= p._id %>?_method=PUT" method="POST">
+
+              <input type="hidden" name="_csrf" value="<%%= csrfToken%>">
+
+              <textarea type="text" class="form-control my-2" name="paragraph" rows="5"><%%= p.paragraph %></textarea>
+
+              <button type="submit" class="btn btn-primary">Update</button>
+
+            </form>
+
+          </div>
+
+        </div>
+        <%% }) %>
+    </div>
+
+
+
+    <!-- add new post paragraph -->
+    <div id="post-new-paragraph" class="row my-5">
+      <div class="col-12">
+        <h4>Add new paragraph to post</h4>
+      </div>
+
+      <div class="col-12">
+
+        <form class="form-inline" action="/admin/blog/<%%= post._id %>/paragraphs" method="POST">
+
+          <input type="hidden" name="_csrf" value="<%%= csrfToken%>">
+
+          <textarea type="text" class="form-control my-2 w-100" name="paragraph" rows="5"
+            placeholder="New post paragraph"><%%= data.paragraph %></textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-success my-3">
+          Add new paragraph
+        </button>
+
+
+      </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <%- include ../partials/go-back-admin-btn -%>
+
+    <%- include ../partials/footer -%>

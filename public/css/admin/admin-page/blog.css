@@ -1,0 +1,25 @@
+.blog {
+  background: var(--bgColorSecondary);
+  margin: 2rem 0;
+  padding: 1rem 3rem;
+}
+
+.post {
+  background-color: var(--bgColorSecondary);
+  border: 1px solid white;
+  padding: 2rem;
+  margin: 2rem 1rem;
+}
+
+.post-header {
+  min-height: 12rem;
+}
+
+.post h4 {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.post img {
+  width: 100%;
+}

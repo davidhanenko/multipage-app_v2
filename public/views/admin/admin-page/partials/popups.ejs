@@ -1,0 +1,43 @@
+<section class="container py-5">
+  <h2 class="admin-section my-4">Create or Edit popup message</h2>
+  <div class="row">
+
+    <div class="col-md-8 p-4 popup-message <%%= popupCurrent && popupCurrent.msgBgColor %>">
+
+      <!-- display message if it marked as current -->
+      <%% if(popupCurrent) { %>
+        <h4
+          class="<%%= popupCurrent.titleFontSize %> <%%= popupCurrent.titleColor %> <%%= popupCurrent.titlePosition %>">
+          <%%= popupCurrent.title %>
+        </h4>
+        <h5 class="popup-text align-middle 
+                          <%%= popupCurrent.msgFontSize %> <%%= popupCurrent.msgColor %> ">
+          <%%= popupCurrent.message %>
+        </h5>
+        <%% } else { %>
+          <h5>Create a new message or choose one from the list to show it on the main page.</h5>
+          <h6 class="mt-5">No current messages..</h4>
+            <%% } %>
+    </div>
+
+    <div class="col-md-4 popup-buttons">
+
+      <a href="/admin/popups" class="btn btn-sm btn-outline-info d-md-block m-2">View
+      </a>
+
+      <%% if(popupCurrent) { %>
+        <form class="d-inline" action="/admin/popups?_method=PUT" method="POST">
+          <input type="hidden" name="_csrf" value="<%%= csrfToken %>">
+          <button class="btn btn-sm btn-outline-secondary d-md-block m-2">Remove</button>
+        </form>
+        <%% } %>
+
+
+    </div>
+    <!-- popover -->
+    <a tabindex="0" class="btn btn-round-advice m-2" role="button" data-toggle="popover" data-trigger="focus"
+      title="Popup message"
+      data-content="&quot;View&quot;: to go to Popup page. &quot;Remove&quot;: to remove current message from the main page.">?</a>
+  </div>
+
+</section>

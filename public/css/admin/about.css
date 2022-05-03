@@ -1,0 +1,63 @@
+@import './header.css';
+@import '../loaders.css';
+@import '../admin/go-back-admin-btn.css';
+
+body {
+  margin-top: calc(var(--navbarHeight) + 4rem);
+  background: var(--bgColorMain);
+}
+
+.container-about {
+  margin-top: 10rem;
+}
+
+h1 {
+  text-transform: capitalize;
+  color: var(---white);
+  font-size: 3rem;
+}
+
+.image-exist {
+  position: relative;
+}
+
+.image-exist img {
+  max-width: 100%;
+}
+
+.image-choose {
+  padding: 0.7rem;
+  max-width: 70%;
+  height: 7rem;
+  background: rgba(177, 131, 159, 0.516);
+  position: -webkit-sticky;
+  position: sticky;
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: start;
+  color: var(---white);
+}
+
+.image-preview {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.edit p {
+  text-indent: 2rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.edit-area,
+.create-form {
+  display: none;
+}
